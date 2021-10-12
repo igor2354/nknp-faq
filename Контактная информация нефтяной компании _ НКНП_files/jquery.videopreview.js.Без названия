@@ -1,0 +1,91 @@
+/*
+jQuery Videopreview - v. 1.0.0
+A jquery plugin to render a video preview on hover.
+
+Copyright (C) <year>  <name of author>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>
+*/
+
+(function($){
+    
+    $.fn.videoPreview = function(options){
+        
+        var settings = $.extend({
+            selector: null,
+            seconds: 5000
+        }, options);
+
+        return this.each(function(){
+            
+            var $this = $(this),
+                $vid = $this.find(settings.selector);
+            
+            // Mouse Enter function, this will add hover-in
+            // Class so when mouse over it will add the preview
+            function enter() { 
+                var counter;
+                window.setInterval(function(){
+                  stopPreview();
+                }, settings.seconds);
+                //console.log($vid); 
+                //if($vid.hasClass('previewIn')) return; //if preview was rendered exit 
+                $vid.get(0).volume = 0; 
+                playPreview();
+            }
+            
+            // Mouse leave function, will reset the preview
+            function leave() {
+                //if($vid.hasClass('previewOut')) return; if preview was rendered exit
+                stopPreview();
+            }
+
+            // Click function, opens in a modal
+            function click() {
+                $vid.get(0).load();
+                $vid.get(0).volume = 1;
+                $vid.get(0).play();
+            }
+
+            //play video
+            function playPreview() {
+                $vid.addClass('previewIn'); 
+                $vid.get(0).volume = 0; 
+                $vid.get(0).play();
+            }
+
+            //stop video
+            function stopPreview(){
+                $vid.addClass('previewOut');
+                $vid.get(0).load();
+                $vid.get(0).volume = 1;
+            }
+            
+            // Mouseenter event binding
+            $vid.on( "mouseenter", function() {
+                return enter();
+            });
+            
+            // Mouseleave event binding
+            $vid.on( "mouseleave", function(){
+                return leave();
+            });
+
+            // Click event binding
+            $vid.on( "click", function(){
+                return click();
+            });
+        });       
+    };
+}(jQuery));   

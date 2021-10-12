@@ -1,0 +1,9 @@
+jQuery(document).ready(function(){
+	jQuery(".city-list__item").on('click', function() {
+		let id = jQuery(this).data("id");
+		jQuery(this).siblings().removeClass("active");
+		jQuery(this).addClass('active');
+		jQuery('.map__item, .physical-address__item').removeClass("active");
+		jQuery('.map__item[data-id=' + id + '], .physical-address__item[data-id=' + id + ']').addClass("active");
+	});
+});

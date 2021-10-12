@@ -1,0 +1,381 @@
+.faq-section__wrap {
+	padding: 43px 0 146px;
+}
+
+.faq-section__title {
+	margin-left: 77px;
+	margin-bottom: 72px;
+}
+
+.faq-section__title::before {
+	position: absolute;
+	content: "";
+	width: 100px;
+	height: 50px;
+	top: 0;
+	left: -77px;
+	background-image: url("./img/icon-title.svg");
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.faq-section__title::after {
+	position: absolute;
+	content: "";
+	width: 13%;
+	height: 4px;
+	bottom: -13px;
+	left: 0;
+	background: #03a63c;
+}
+
+.faq-section__block {
+}
+
+.faq-section__list {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-auto-rows: 1fr;
+	column-gap: 20px;
+	row-gap: 40px;
+}
+
+.faq-section__item {
+}
+
+.card-faq {
+	position: relative;
+}
+
+.card-faq.active .card-faq__popup {
+	opacity: 1;
+	visibility: visible;
+}
+
+.card-faq__main {
+}
+
+.card-faq__popup {
+}
+
+.faq-section__item:nth-child(4n + 4) .card-faq__popup {
+	left: initial;
+	right: 0;
+}
+
+.card-faq-main {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	background: #ffffff;
+	box-shadow: 0px 2px 2px rgba(54, 65, 76, 0.2);
+	border-radius: 19px;
+}
+
+.card-faq-main__wrap {
+	flex-grow: 1;
+	padding: 30px;
+}
+
+.card-faq-main__icon {
+	margin-bottom: 20px;
+}
+
+.card-faq-main__text {
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 24px;
+	color: #36414d;
+}
+
+.card-faq-main__group {
+	padding: 20px 30px;
+	border-radius: 0 0 19px 19px;
+	background: #03a63c;
+}
+
+.card-faq-main__link {
+	cursor: pointer;
+	position: relative;
+	width: 48px;
+	height: 48px;
+	border: 1px solid #fff;
+	border-radius: 50%;
+}
+
+.card-faq-main__link::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 18px;
+	height: 18px;
+	background: url("./img/icon-arrow-link.svg") no-repeat center / contain;
+	transition: all 0.3s ease;
+}
+
+.card-faq-main__link:hover::before {
+	transform: translate(calc(-50% + 5px), -50%);
+}
+
+.card-faq-popup {
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.3s ease;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: calc(200% + 20px);
+	min-height: 100%;
+	padding: 30px;
+
+	background: #ffffff;
+	box-shadow: 0px 2px 2px rgba(54, 65, 76, 0.2);
+	border-radius: 19px;
+
+	z-index: 2;
+}
+
+.card-faq-popup__close {
+	cursor: pointer;
+	position: absolute;
+	top: 35px;
+	right: 30px;
+	width: 20px;
+	height: 20px;
+	transition: all 0.3s ease;
+}
+
+.card-faq-popup__close:hover {
+	transform: rotate(90deg);
+}
+
+.card-faq-popup__close::before,
+.card-faq-popup__close::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+	height: 1px;
+	background: #000;
+}
+
+.card-faq-popup__close::before {
+	transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.card-faq-popup__close::after {
+	transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.card-faq-popup__group {
+	display: flex;
+	margin-bottom: 30px;
+}
+
+.card-faq-popup__icon {
+	margin-right: 30px;
+}
+
+.card-faq-popup__icon img {
+	min-width: 72px;
+	min-height: 72px;
+	max-width: 72px;
+	max-height: 72px;
+}
+
+.card-faq-popup__text {
+	padding-right: 30px;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 24px;
+	color: #36414d;
+}
+
+.card-faq-popup__info {
+	font-family: Arial;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 20px;
+	color: #36414d;
+}
+
+.card-faq-popup__info.hide-button .card-faq-popup__info-all {
+	display: none;
+}
+
+.card-faq-popup__info.hide-button .card-faq-popup__info-text::before {
+	opacity: 0;
+}
+
+.card-faq-popup__info-all {
+	margin-top: 20px;
+	display: block;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 20px;
+	color: #03a63c;
+}
+
+.card-faq-popup__info-text {
+	position: relative;
+	max-height: 250px;
+	overflow: hidden;
+	transition: all 0.3s ease;
+}
+
+.card-faq-popup__info-text::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 20px;
+	background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.1));
+}
+
+.card-faq-popup__info-text.show {
+	/* max-height: initial; */
+}
+
+.card-faq-popup__info-text.show::before {
+	opacity: 0;
+}
+
+.card-faq-popup__info-text p {
+	font-size: 14px;
+}
+
+.card-faq-popup__info-text a {
+	font-size: 14px;
+	color: #03a63c;
+	border-bottom: 1px solid #03a63c;
+	transition: all 0.3s ease;
+}
+
+.card-faq-popup__info-text a:hover {
+	border-color: transparent;
+}
+
+.card-faq-popup__info-text *:last-child {
+	margin-bottom: 0;
+}
+
+@media (max-width: 1470px) {
+	.card-faq-main__wrap {
+		padding: 15px;
+	}
+
+	.card-faq-main__group {
+		padding: 15px;
+	}
+
+	.card-faq-popup {
+		padding: 15px;
+	}
+
+	.card-faq-popup__close {
+		top: 20px;
+		right: 20px;
+	}
+}
+
+@media (max-width: 1170px) {
+	.faq-section__list {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.faq-section__item:nth-child(4n + 4) .card-faq__popup {
+		left: 0;
+		right: initial;
+	}
+
+	.faq-section__item:nth-child(2n + 2) .card-faq__popup {
+		left: initial;
+		right: 0;
+	}
+}
+
+@media (max-width: 768px) {
+	.faq-section__wrap {
+		padding: 20px 0 80px 0;
+	}
+
+	.faq-section__list {
+		grid-template-columns: 1fr;
+		grid-auto-rows: initial;
+	}
+
+	.faq-section__item:nth-child(2n + 2) .card-faq__popup {
+		left: 0;
+		right: initial;
+	}
+
+	.card-faq-main__icon {
+		margin-bottom: 15px;
+	}
+
+	.card-faq-main__text {
+		font-size: 14px;
+	}
+
+	.card-faq-popup {
+		width: 100%;
+	}
+
+	.card-faq-popup__text {
+		font-size: 14px;
+	}
+
+	.card-faq-popup__icon {
+		margin-right: 15px;
+	}
+
+	.card-faq-popup__group {
+		margin-bottom: 15px;
+	}
+
+	.faq-section__title {
+		margin-bottom: 40px;
+	}
+}
+
+@media (max-width: 500px) {
+	.card-faq-popup__group {
+		flex-direction: column;
+	}
+
+	.card-faq-popup__icon {
+		padding-right: 30px;
+		margin-right: 0;
+		margin-bottom: 15px;
+	}
+
+	.card-faq-popup__text {
+		padding-right: 0;
+	}
+
+	.card-faq-popup__info-text a {
+		font-size: 12px;
+	}
+
+	.card-faq-popup__info-text p {
+		font-size: 12px;
+	}
+
+	.faq-section__title::before {
+		top: 0;
+		left: 0;
+	}
+
+	.faq-section__title {
+		padding-top: 65px;
+		margin-left: 0;
+	}
+}
